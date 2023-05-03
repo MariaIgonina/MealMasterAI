@@ -2,16 +2,29 @@ import { useAuth0 } from "@auth0/auth0-react";
 import React, { useState, useEffect } from "react";
 import { submitForm, addOne, getAll } from "../api.service";
 import { DietContext } from "../App";
-import { IDiet } from "../Interfaces";
+import { IDiet, PreviousDiet, FormDiet } from "../Interfaces";
 
-const DietProvider = ({ children }) => {
+
+
+interface IDietContext {
+  diets?: IDiet[];
+  setDiets?: React.Dispatch<React.SetStateAction<IDiet[]>>;
+  handleMealSubmit?: (formData: FormDiet, onSuccess: any) => Promise<void>;
+  isLoading?: boolean;
+  lastCreatedDiet?: PreviousDiet;
+  children: React.ReactNode; 
+}
+
+const DietProvider: React.FC<IDietContext> = ({ children }) => {
   const [diets, setDiets] = useState<IDiet[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [lastCreatedDiet, setLastCreatedDiet] = useState<{}>({});
 
+  useEffect(()=> console.log('children', children), [])
+
   const { user, isAuthenticated } = useAuth0();
 
-  const handleMealSubmit = async (formData: {}, onSuccess:any) => {
+  const handleMealSubmit = async (formData: FormDiet, onSuccess:any) => {
     console.log('formData', formData)
     console.log('onSuccess', onSuccess)
 

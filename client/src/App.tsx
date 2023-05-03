@@ -26,7 +26,7 @@ const App = () => {
     <DietProvider>
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<LoginPage />} />
+          <Route path="/" element={<LoginPage />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/create-meal" element={<CreateMealPage />} />
           <Route path="/dashboard" element={<DietsPage />} />

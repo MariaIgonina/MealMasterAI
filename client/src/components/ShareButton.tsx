@@ -11,6 +11,7 @@ import { IDiet } from "../Interfaces";
 
 interface Props {
   diet: IDiet;
+  
 }
 
 export const ShareButton: React.FC<Props> = ({ diet }) => {
