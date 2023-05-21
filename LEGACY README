@@ -1,4 +1,4 @@
-This amazing app was taken from my colleague's repository for experience with a legacy project. Some changes have been done that make this app more stabile and easier for futher improvements.
+This amazing app was taken from my colleague's repository for experience with a legacy project. Some changes have been done that make this app more stabile and easier for further improvements.
 
 1. JavaScript refactored to TypeScript.
 2. Context API approach of data flow was refactored using "@reduxjs/toolkit" library.
